@@ -1,0 +1,19 @@
+/*
+Run-length Encoding kata
+https://www.codewars.com/kata/546dba39fa8da224e8000467
+*/
+var runLengthEncoding = function(str){
+  if (str === '') return [];
+  let encoding = [];
+  let current = [0, str[0]];
+  str.split('').forEach(char => {
+    if (char === current[1]) {
+      current[0]++;
+    } else {
+      encoding.push(current);
+      current = [1, char]
+    }
+  })
+  encoding.push(current);
+  return encoding;
+}
